@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Card = require("../models/bank_card");
 const _ = require("lodash");
 const formidable = require("formidable");
 const fs = require("fs");
@@ -176,4 +177,24 @@ exports.getNotifications = async (req, res) => {
             res.status(200).json(user.notifications.slice((user.notifications.length - 6), user.notifications.length));
         })
         .catch(err => console.log(err));
+};
+
+/**
+ * Add card method
+ * 
+ * @param {object} req 
+ * @param {object} res
+ * @returns {json} res.json
+ */
+ exports.addCard = async (req, res) => {
+    const owner = req.profile
+    const card = await new Card({
+        owner: owner,
+        details: req.body,
+    });
+    owner.bank_cards.push(card);
+    await owner.save();
+    await card.save();
+    
+    res.status(200).json({ message: "Card created" });
 };

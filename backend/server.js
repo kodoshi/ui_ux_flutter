@@ -1,4 +1,4 @@
-const config = require("./config/config.js");
+//const config = require("./config/config.js");
 const express = require('express');
 const app = express();
 require('dotenv').config();
@@ -34,6 +34,9 @@ const userRoutes = require("./routes/user"); //user routing
 //middlewares
 app.use(morgan("dev"));
 app.use(bodyParser.json()); //express is depress-ion
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());

@@ -78,7 +78,7 @@ exports.signout = (req, res) => {
  * @param {object} req HTTP request from express
  * @param {object} res HTTP response from express
  */
-exports.requireSignin = express_jwt({ secret: process.env.JWT_SECRET, userProperty: "auth" });
+exports.requireSignin = express_jwt({ secret: process.env.JWT_SECRET, userProperty: "auth", algorithms: ['RS256'] });
 
 
 // add forgotPassword and resetPassword methods

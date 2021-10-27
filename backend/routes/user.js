@@ -23,6 +23,7 @@ router.put(
   userController.updateUser
 );
 
+
 router.delete(
   "/user/:userId",
   authController.requireSignin,
@@ -31,6 +32,10 @@ router.delete(
 );
 
 router.get("/user/photo/:userId", userController.userPhoto);
+
+router.post("/user/addcard/:userId",
+userController.addCard,
+);
 
 //userById() with be executed in routes that have :userId
 router.param("userId", userController.userById);
