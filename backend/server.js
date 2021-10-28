@@ -30,7 +30,7 @@ db.on("error", function (err) {
 
 const authRoutes = require("./routes/auth"); //authentication routing
 const userRoutes = require("./routes/user"); //user routing
-
+const paymentRoutes = require("./routes/payment");
 //middlewares
 app.use(morgan("dev"));
 app.use(bodyParser.json()); //express is depress-ion
@@ -42,6 +42,7 @@ app.use(expressValidator());
 app.use(cors());
 app.use("/", authRoutes);
 app.use("/", userRoutes);
+app.use("/", paymentRoutes);
 
 
 //custom middleware to give cleaner missing auth error

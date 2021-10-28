@@ -194,6 +194,9 @@ exports.getNotifications = async (req, res) => {
         details: req.body,
     });
     owner.bank_cards.push(card);
+    if (owner.bank_cards.length === 1) {
+        owner.active_preferences.card_destination = card;
+    }
     await owner.save();
     await card.save();
     

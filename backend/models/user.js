@@ -61,7 +61,7 @@ const userSchema = new mongoose.Schema({
   //preferred values, when receiving money user can pick to get his funds
   //automatically converted to a pre-selected currency/crypto, based on active card picked
   active_preferences: {
-    card_destination: { type: mongoose.Schema.ObjectId, ref: "BankCard" },
+    card_destination: { type: mongoose.Schema.ObjectId, ref: "BankCard", default: null },
     //since user can have multiple cards but only 1 crypto wallet,
     //the selection will be based on a boolean, & crypto wallet can only hold BTC for now
     isCryptoPreferred: { type: Boolean, default: false },
