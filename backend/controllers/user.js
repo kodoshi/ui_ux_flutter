@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Card = require("../models/bank_card");
+const Wallet = require("../models/crypto_wallet");
 const _ = require("lodash");
 const formidable = require("formidable");
 const fs = require("fs");
@@ -198,3 +199,23 @@ exports.getNotifications = async (req, res) => {
     
     res.status(200).json({ message: "Card created" });
 };
+
+/**
+ * Add wallet method
+ * 
+ * @param {object} req 
+ * @param {object} res
+ * @returns {json} res.json
+ */
+ exports.addWallet = async (req, res) => {
+    const owner = req.profile
+    const wallet = await new Wallet({
+        owner: owner,
+    });
+    owner.crypto_wallet = wallet;
+    await owner.save();
+    await wallet.save();
+    
+    res.status(200).json({ message: "Wallet created" });
+};
+

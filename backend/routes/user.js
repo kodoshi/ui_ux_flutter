@@ -37,6 +37,10 @@ router.post("/user/addcard/:userId",
 userController.addCard,
 );
 
+router.post("/user/addwallet/:userId",
+userController.addWallet,
+);
+
 //userById() with be executed in routes that have :userId
 router.param("userId", userController.userById);
 

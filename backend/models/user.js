@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
   bank_cards: [{ type: mongoose.Schema.ObjectId, ref: "BankCard" }],
 
   //crypto wallet will also hold payments made/received into it
-  crypto_wallet: { type: mongoose.Schema.ObjectId, ref: "CryptoWallet" }, // only 1
+  crypto_wallet: { type: mongoose.Schema.ObjectId, ref: "CryptoWallet", default: null }, // only 1
 
   //preferred values, when receiving money user can pick to get his funds
   //automatically converted to a pre-selected currency/crypto, based on active card picked
