@@ -41,6 +41,14 @@ router.post("/user/addwallet/:userId",
 userController.addWallet,
 );
 
+router.delete("/user/deletewallet/:userId",
+userController.deleteWallet,
+);
+
+router.delete("/user/deletecard/:userId",
+userController.deleteCard,
+);
+
 router.post("/user/toogleCrypto/:userId",
 userController.changeCryptoPreference,
 );

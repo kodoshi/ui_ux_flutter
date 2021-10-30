@@ -223,6 +223,50 @@ exports.getNotifications = async (req, res) => {
 };
 
 /**
+ * delete wallet method
+ * 
+ * @param {object} req 
+ * @param {object} res
+ * @returns {json} res.json
+ */
+ exports.deleteWallet = async (req, res) => {
+    const owner = req.profile;
+    const wallet = await Wallet.findById(owner.crypto_wallet).exec();
+    owner.crypto_wallet = null;
+    if (owner.active_preferences.isCryptoPreferred === true) {
+        owner.active_preferences.isCryptoPreferred = false;
+    }
+    await owner.save();
+    await wallet.remove();
+    
+    res.status(200).json({ message: "Wallet deleted" });
+};
+
+/**
+ * delete card method
+ * 
+ * @param {object} req 
+ * @param {object} res
+ * @returns {json} res.json
+ */
+ exports.deleteCard = async (req, res) => {
+    const owner = req.profile;
+    const card = await Card.findById(req.body.card).exec();
+    if (owner.bank_cards.includes(req.body.card)) {
+        owner.bank_cards = owner.bank_cards.filter(function(ele){ 
+            return ele != req.body.card; 
+        });
+    }
+    if (owner.active_preferences.card_destination == req.body.card) {
+        owner.active_preferences.card_destination = null;
+    }
+    await owner.save();
+    //await card.remove();
+    
+    res.status(200).json({ message: "Card deleted" });
+};
+
+/**
  * Change crypto preference method
  * 
  * @param {object} req 
