@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "489a9f0c-c1ea-4fbb-8b4c-158c7b74efcc",
+		"name": "UX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "RECEIVER",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "receive@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "roger@test.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "RECEIVER",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "receive@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "roger@test.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "test1234",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "shopping",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "visa",
+							"type": "text"
+						},
+						{
+							"key": "iban",
+							"value": "43243242424234",
+							"type": "text"
+						},
+						{
+							"key": "expiration_date",
+							"value": "2222/10/10",
+							"type": "text"
+						},
+						{
+							"key": "cvv_code",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "spending_limit",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "currency",
+							"value": "EUR",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/addCard/617af31877d0835ce45cd06f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"addCard",
+						"617af31877d0835ce45cd06f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "makepayment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "sender",
+							"value": "61799ff0b81ed525aee60dc8",
+							"type": "text"
+						},
+						{
+							"key": "receiver",
+							"value": "617af31877d0835ce45cd06f",
+							"type": "text"
+						},
+						{
+							"key": "cryptoPayment",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "message",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "card",
+							"value": "6179a00db81ed525aee60dcb",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/payment/makepayment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"makepayment"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change crypto preference",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/toogleCrypto/617af31877d0835ce45cd06f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"toogleCrypto",
+						"617af31877d0835ce45cd06f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change destination card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "card",
+							"value": "617af2bdce77435c0311b6c1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/cardDestination/617af31877d0835ce45cd06f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"cardDestination",
+						"617af31877d0835ce45cd06f"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
