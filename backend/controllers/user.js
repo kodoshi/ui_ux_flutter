@@ -222,3 +222,41 @@ exports.getNotifications = async (req, res) => {
     res.status(200).json({ message: "Wallet created" });
 };
 
+/**
+ * Change crypto preference method
+ * 
+ * @param {object} req 
+ * @param {object} res
+ * @returns {json} res.json
+ */
+ exports.changeCryptoPreference = async (req, res) => {
+    const user = req.profile;
+    if (user.active_preferences.isCryptoPreferred === true) {
+        user.active_preferences.isCryptoPreferred = false;
+    } else {
+        user.active_preferences.isCryptoPreferred = true;
+    }
+
+    await user.save();
+    
+    res.status(200).json({ message: "Preference changed" });
+};
+
+/**
+ * Change prefered card
+ * 
+ * @param {object} req 
+ * @param {object} res
+ * @returns {json} res.json
+ */
+ exports.cardDestination = async (req, res) => {
+    const user = req.profile;
+    
+    if (user.bank_cards.includes(req.body.card)) {
+        user.active_preferences.card_destination = req.body.card;
+        await user.save();
+        res.status(200).json({ message: "Preference changed" });
+    } else {
+        res.status(400).json({ message: "Wrong card number" });
+    }
+};
