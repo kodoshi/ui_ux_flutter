@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:banking_app/pages/component/dropdown.dart';
+import 'package:banking_app/pages/profile_page.dart';
+import 'package:banking_app/pages/component/header_profile.dart';
 
 
 class AmountPage extends StatefulWidget {
@@ -42,26 +44,24 @@ class _AmountPageState extends State<AmountPage> {
           });
         }),
         child: SingleChildScrollView(
-          child: Column(
+          child: Column (
           crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Container(
-                height: 59,
-                width: 59,
-                color: Colors.pink,
-                child: Text("Maria Callas"),
+              Padding(
+                padding: const EdgeInsets.only(bottom:40),
+                child: SizedBox(
+                height: 140.0,
+                child:  HeaderProfile(),
               ),
-              const SizedBox(
-                height: 100.0,
-              ),
+            ),
+               
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Available :", style: TextStyle(color: Colors.black.withOpacity(0.8)),
+                    "Available: ", style: TextStyle(color: Colors.black.withOpacity(0.8), fontSize: 18.0), //backgroundColor
                   ),
-                  const Text("£ 3,150.70", style: TextStyle(fontWeight: FontWeight.bold),
+                  const Text("£ 3,150.70", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
                     ),
                 ]
               ),
@@ -93,43 +93,53 @@ class _AmountPageState extends State<AmountPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Commission :", style: TextStyle(color: Colors.black.withOpacity(0.8)),
+                        "Commission: ", style: TextStyle(color: Colors.black.withOpacity(0.8), fontSize: 18.0,), //backgroundColor
                       ),
-                      const Text("£ 3.30", style: TextStyle(fontWeight: FontWeight.bold),
+                      const Text("£ 3.30", style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0,
+),
                       ),
                     ]
                   ),
                 ),
-                
-             Container(
-                height: 50.0,
-                margin: const EdgeInsets.only(top: 80.0),
-                alignment: Alignment.bottomCenter,
-                child: RaisedButton(
-                onPressed: () {},
-                padding: EdgeInsets.all(0.0),
-                child: Ink(
-                  decoration: const BoxDecoration(
-                     gradient:  LinearGradient(
-                       colors: [ Color(0xff374ABE), Color(0xff64B6FF)],
-                       begin: Alignment.centerLeft,
-                       end: Alignment.centerRight,
-                     ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 100, bottom: 15),
+                  child: Container(
+                    child: RaisedButton(
+                    onPressed: () {
+                            const AlertDialog alert = AlertDialog(
+                              title: Text("Your money has been sent !"),
+                              content: Icon(Icons.mail_outline),
+                            );
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return alert;
+                              },
+                            );
+                    },
+                    padding: EdgeInsets.all(0.0),
+                    child: Ink(
+                      decoration: const BoxDecoration(
+                        gradient:  LinearGradient(
+                          colors: [ Color(0xff374ABE), Color(0xff64B6FF)], //backgroundColor
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight,
+                        ),
+                    ),
+                    child: Container(
+                      constraints:
+                      const BoxConstraints(minHeight: 70.0),
+                      alignment: Alignment.center,
+                      child: const Text (
+                        "Send money",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white, fontSize: 22),
+                      ),
+                    ),
+                  ),
                 ),
-                 child: Container(
-                   constraints:
-                       const BoxConstraints(minHeight: 50.0),
-                   alignment: Alignment.center,
-                   child: const Text(
-                     "Send money",
-                     textAlign: TextAlign.center,
-                     style: TextStyle(color: Colors.white, fontSize: 15),
-                   ),
-                 ),
-               ),
-             ),
-           ),
-           
+              ),
+              )
             ],
           ),
         ),

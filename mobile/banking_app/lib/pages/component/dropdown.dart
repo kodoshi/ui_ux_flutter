@@ -25,8 +25,8 @@ class _DropdownMenuState extends State<DropdownMenu> {
   Widget build(BuildContext context) {
     return DropdownButton<String>(
       value: dropdownValue,
-      icon: const Icon(Icons.arrow_downward),
-      iconSize: 24,
+      // icon: const Icon(Icons.arrow_downward),
+      // iconSize: 24,
       elevation: 16,
       style: const TextStyle(color: Colors.deepPurple),
       underline: Container(
@@ -42,7 +42,7 @@ class _DropdownMenuState extends State<DropdownMenu> {
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Text(value, style: const TextStyle(fontSize: 18.0),),
         );
       }).toList(),
     );
