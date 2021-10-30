@@ -19,16 +19,6 @@ class _AmountPageState extends State<AmountPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController subjectController = TextEditingController();
   TextEditingController messageController = TextEditingController();
-  
-    List<DropdownMenuItem<String>> get dropdownItems{ 
-    List<DropdownMenuItem<String>> menuItems = [
-      DropdownMenuItem(child: Text("USA"),value: "USA"),
-      DropdownMenuItem(child: Text("Canada"),value: "Canada"),
-      DropdownMenuItem(child: Text("Brazil"),value: "Brazil"),
-      DropdownMenuItem(child: Text("England"),value: "England"),
-    ];
-    return menuItems;
-  }
 
   @override
   void dispose() {
@@ -56,20 +46,26 @@ class _AmountPageState extends State<AmountPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           // mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+              Container(
+                height: 59,
+                width: 59,
+                color: Colors.pink,
+                child: Text("Maria Callas"),
+              ),
               const SizedBox(
                 height: 100.0,
               ),
-               Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Available :", style: TextStyle(color: Colors.black.withOpacity(0.8)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Available :", style: TextStyle(color: Colors.black.withOpacity(0.8)),
+                  ),
+                  const Text("£ 3,150.70", style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    const Text("£ 3,150.70", style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                  ]
-                ),
-                const DropdownMenu(),              
+                ]
+              ),
+              const DropdownMenu(),          
               Container(
                 margin: const EdgeInsets.only(top: 10.0),
                 alignment: Alignment.center,
@@ -104,6 +100,7 @@ class _AmountPageState extends State<AmountPage> {
                     ]
                   ),
                 ),
+                
              Container(
                 height: 50.0,
                 margin: const EdgeInsets.only(top: 80.0),
