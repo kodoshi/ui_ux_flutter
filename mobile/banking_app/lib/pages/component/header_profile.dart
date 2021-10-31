@@ -18,7 +18,7 @@ class HeaderProfile extends StatelessWidget {
                 const Align(
                   alignment: Alignment(-1, 0.3),
                   child: CircleAvatar(
-                    backgroundImage: NetworkImage("https://i.picsum.photos/id/866/200/300.jpg"),
+                    backgroundImage: AssetImage("assets/image/profile_pict.jpg"),
                     radius: 32.5,
                   ),
                 ),
@@ -36,6 +36,12 @@ class HeaderProfile extends StatelessWidget {
                     style: TextStyle( fontSize: 16.0),
                   ),
                 ),
+                Align(
+                  alignment:  Alignment(-0.28, 0.35) + Alignment(0.80, 0),
+                child: Image.asset(
+                  "assets/image/Mastercard-logo.png",
+                  width:25,
+                  ),),
                 Align(
                   alignment: Alignment.centerRight + const Alignment(0, .1),
                   child: Icon(Icons.more_vert),
