@@ -1,19 +1,19 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:banking_app/utils/const.dart';
 
 class CardScroller extends StatelessWidget {
-   List<int> numbers = [1, 2, 3,];
-   List<String> cardtext = ["XXXX XXXX XX31 0509", "XXXX XXXX XX31 0508", "XXXX XXXX XX31 0507"];
-   List<String> expDate = ["05/22", "01/24", "10/22"];
-   List<String> cardName = ["Main card", "Europe travel", "Test"];
-   List<String> amount = ["€ 4,907.20", "€ 7,118.30", "€ 1,234.18"];
-   List<String> cardType = ["assets/image/visa_logo.png", "assets/image/Mastercard-logo.png", "assets/image/visa_logo.png"];
+   List<int> numbers = [1, 2, 3, 4];
+   List<String> cardtext = ["XXXX XXXX XX31 0509", "XXXX XXXX XX31 0508", "XXXX XXXX XX31 0507", " "];
+   List<String> expDate = ["05/22", "01/24", "10/22", " "];
+   List<String> cardName = ["Main card", "Europe travel", "Test", "Crypto Wallet"];
+   List<String> amount = ["€ 4,907.20", "€ 7,118.30", "€ 1,234.18", "BTC  0.734"];
+   List<String> cardType = ["assets/image/visa_logo.png", "assets/image/Mastercard-logo.png", "assets/image/visa_logo.png", "assets/image/btc_logo.png"];
 
   @override
   Widget build(BuildContext context) {
     AssetImage imageVisa = AssetImage("assets/image/visa_logo.png");
     return Scaffold(
+      backgroundColor: getTheme('backgroundColor'),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
         height: MediaQuery.of(context).size.height * 0.30,
@@ -21,7 +21,8 @@ class CardScroller extends StatelessWidget {
           scrollDirection: Axis.horizontal,
             itemCount: numbers.length, itemBuilder: (context, index) {
               return Container(
-                width: MediaQuery.of(context).size.width * 0.7,
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: 200,//MediaQuery.of(context).size.height * 0.9,
                 child: Card(
                   // color: Colors.black,
                   child: Container(
@@ -49,8 +50,8 @@ class CardScroller extends StatelessWidget {
                         ),
                          Positioned (
                           left: 19,
-                          top: 150,
-                          child: Text(amount[index].toString(), style: TextStyle(fontSize: 32.0)
+                          top: 115,
+                          child: Text(amount[index].toString(), style: TextStyle(fontSize: 26.0)
                           ),
                         ),
                         Positioned (

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -37,7 +36,8 @@ class _ProfilePageState extends State<ProfilePage> {
             itemBuilder: (BuildContext context) => <PopupMenuEntry<Actions>>[
               const PopupMenuItem<Actions>(
                 value: Actions.logout,
-                child: ListTile(
+                child: 
+                ListTile(
                   minLeadingWidth: 0,
                   leading: Icon(Icons.logout),
                   title: Text('Logout'),

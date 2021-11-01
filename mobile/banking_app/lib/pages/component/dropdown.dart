@@ -1,12 +1,5 @@
-/// Flutter code sample for DropdownButton
-
-// This sample shows a `DropdownButton` with a large arrow icon,
-// purple text style, and bold purple underline, whose value is one of "One",
-// "Two", "Free", or "Four".
-//
-// ![](https://flutter.github.io/assets-for-api-docs/assets/material/dropdown_button.png)
-
 import 'package:flutter/material.dart';
+import 'package:banking_app/utils/const.dart';
 
 
 /// This is the stateful widget that the main application instantiates.
@@ -26,23 +19,23 @@ class _DropdownMenuState extends State<DropdownMenu> {
     return DropdownButton<String>(
       value: dropdownValue,
       // icon: const Icon(Icons.arrow_downward),
-      // iconSize: 24,
+      iconSize: 24,
       elevation: 16,
-      style: const TextStyle(color: Colors.deepPurple),
+      style: TextStyle(color: getTheme('accentColor'), fontWeight: FontWeight.bold),
       underline: Container(
         height: 2,
-        color: Colors.deepPurpleAccent,
+        color: getTheme('accentColor'),
       ),
       onChanged: (String? newValue) {
         setState(() {
           dropdownValue = newValue!;
         });
       },
-      items: <String>['£','\$','€','¥']
+      items: <String>['£','\$','€','¥','BTC']
           .map<DropdownMenuItem<String>>((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value, style: const TextStyle(fontSize: 18.0),),
+          child: Text(value, style: const TextStyle(fontSize: 25.0),),
         );
       }).toList(),
     );
