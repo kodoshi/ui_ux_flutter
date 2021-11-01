@@ -1,6 +1,6 @@
 # M-TRC-769 User eXperience module
 
-A banking flutter app which connects to a nodejs backend, with a mongodb cloud instance.
+A banking flutter app which connects to a nodejs backend, with a mongodb cloud instance. Team members: Klivens Ziu, Victor Thomas, Lucas Mascaut.
 
 ## Services
 
